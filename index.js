@@ -8,7 +8,7 @@ const Language = require('./language.js');
 const Protos = require('./protobufs/generated/_load.js');
 
 const STEAM_APPID = 730;
-
+const STEAM_730_VERSION = 2000202 ;
 module.exports = GlobalOffensive;
 
 Util.inherits(GlobalOffensive, EventEmitter);
@@ -117,7 +117,7 @@ GlobalOffensive.prototype._connect = function() {
 			return;
 		}
 
-		this._send(Language.ClientHello, Protos.CMsgClientHello, {});
+		this._send(Language.ClientHello, Protos.CMsgClientHello, { version: STEAM_730_VERSION });
 		this._helloTimerMs = Math.min(60000, (this._helloTimerMs || 1000) * 2); // exponential backoff, max 60 seconds
 		this._helloTimer = setTimeout(sendHello, this._helloTimerMs);
 		this.emit('debug', "Sending hello, setting timer for next attempt to " + this._helloTimerMs + " ms");
