@@ -28,7 +28,6 @@
 		"globaloffensive-sharecode": "^1.1.1",
 		"long": "^5.2.3",
 		"protobufjs": "^7.2.5",
-		"protobufjs-cli": "^1.1.2",
 		"steamid": "^2.0.0"
 	},
 	"devDependencies": {
